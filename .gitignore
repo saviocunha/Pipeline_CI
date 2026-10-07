@@ -1,0 +1,13 @@
+# Ambientes virtuais / dependências
+.venv/
+venv/
+env/
+
+# Caches do python e testes
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Variaveis de ambiente
+.env
+.env.*
