@@ -19,8 +19,8 @@ def soma():
     a = int(request.args.get('a'))
     b = int(request.args.get('b'))
 
-    #resultado = a + b
-    resultado = a - b   # Missão 8.1 - Simulação de bug
+    resultado = a + b
+    # resultado = a - b   # Missão 8.1 - Simulação de bug
 
 
     return jsonify({"resultado": resultado})
