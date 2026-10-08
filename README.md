@@ -1,5 +1,7 @@
 # FastOrder API
 
+[![Esteira CI](https://github.com/saviocunha/Pipeline_CI/actions/workflows/ci-pipeline.yml/badge.svg?branch=main)](https://github.com/saviocunha/Pipeline_CI/actions)
+
 API REST simples desenvolvida em Python/Flask como parte do **Estudo Guiado 01 - Pipeline CI** da disciplina de Integração de Sistemas (UFCA).
 
 ## 📖 Sobre o Projeto
@@ -76,6 +78,7 @@ O workflow está definido em `.github/workflows/ci-pipeline.yml` e é acionado a
 6. **Build da imagem Docker** para garantir que o contêiner compila.
 
 Acompanhe as execuções na aba **Actions** do repositório no GitHub.
+AD
 
 ## 👥 Equipe
 
