@@ -10,7 +10,7 @@ on:
 
 # Variáveis de ambiente
 env:
-  VERSAO_PYTHON: "3.14"  # Versão do Python utilizada nos testes e build
+  VERSAO_PYTHON: "3.10"  # Versão do Python utilizada nos testes e build
   NOME_VERSAO: "1.0.0"  # Tag/versão atribuída à imagem Docker final
   ENV_NAME: "producao"  # Nome do ambiente de destino
 
