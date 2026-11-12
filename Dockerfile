@@ -5,6 +5,10 @@ FROM python:3.9-slim
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
+
+# ADICIONA UPGRADE DE PACOTE 
+RUN apt-get update && apt-get upgrade -y openssl
+
 # Copia apenas o arquivo de dependências primeiro (otimização de cache do Docker)
 COPY requirements.txt .
 
