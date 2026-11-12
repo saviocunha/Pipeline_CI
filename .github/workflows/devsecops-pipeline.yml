@@ -77,7 +77,7 @@ jobs:
       # -ii = só reporta problemas com confiança MEDIUM ou maior.
       - name: SAST - Análise Estática com Bandit
         run: |
-          bandit -r . -ll -ii 
+          bandit -r . -ll
       
       # SCA: Verifica se os pacotes listados no requirements.txt têm vulnerabilidades conhecidas (CVEs)
       - name: SCA - Análise de Dependências com Pip-Audit
