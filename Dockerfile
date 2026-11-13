@@ -5,9 +5,9 @@ FROM python:3.9-slim
 WORKDIR /app
 
 # Atualiza pacotes do sistema operacional e limpa o cache do apt para reduzir o tamanho
-# RUN apt-get update \
-#     && apt-get upgrade -y --no-install-recommends \
-#     && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+     && apt-get upgrade -y --no-install-recommends \
+     && rm -rf /var/lib/apt/lists/*
 # Copia apenas o arquivo de dependências primeiro (otimização de cache do Docker)
 COPY requirements.txt .
 
