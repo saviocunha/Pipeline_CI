@@ -7,7 +7,7 @@ WORKDIR /app
 
 
 # ADICIONA UPGRADE DE PACOTE. Retirar comentário na prática
-RUN apt-get update && apt-get upgrade
+RUN apt-get update && apt-get upgrade -y
 #-y openssl
 
 # Copia apenas o arquivo de dependências primeiro (otimização de cache do Docker)
