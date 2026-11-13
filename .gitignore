@@ -11,3 +11,12 @@ __pycache__/
 # Variaveis de ambiente
 .env
 .env.*
+
+# Relatórios de segurança e SBOM
+*sbom*.json
+*sbom*.xml
+*bom*.json
+*bom*.xml
+cyclonedx*
+trivy*
+trivy_envs.txt
