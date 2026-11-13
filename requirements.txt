@@ -8,5 +8,4 @@ pytest
 bandit
 pip-audit
 
-# Correções de vulnerabilidades apontadas pelas varreduras (pip-audit / Trivy)
-setuptools>=78.1.1
+
