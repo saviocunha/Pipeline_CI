@@ -1,20 +1,18 @@
 # Usa uma imgagem oficial do Python, bem leve (alpine ou slim)
 
-FROM python:3.12-alpine
-
+FROM python:3.12-slim
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
 # Atualiza pacotes do sistema operacional e limpa o cache do apt para reduzir o tamanho
-RUN apk update && apk upgrade && rm -rf /var/cache/apk/*
-
+UN apt-get update && apt-get install -y --no-install-recommends openssl \
+    && rm -rf /var/lib/apt/lists/*
 # Copia apenas o arquivo de dependências primeiro (otimização de cache do Docker)
 COPY requirements.txt .
 
 # Atualiza as ferramentas base e todas as dependências da aplicação de uma vez
-RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
-    && pip install --no-cache-dir --upgrade -r requirements.txt
-    
+RUN pip install --no-cache-dir -r requirements.txt
+
 # Copia o resto do código da aplicação para dentro do contêiner
 COPY . .
 
