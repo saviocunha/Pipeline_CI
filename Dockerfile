@@ -1,13 +1,13 @@
 # Usa uma imgagem oficial do Python, bem leve (alpine ou slim)
 
-FROM python:3.12-slim
+FROM python:3.9-slim
 
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
 
 
 # ADICIONA UPGRADE DE PACOTE. Retirar comentário na prática
-RUN apt-get update && apt-get upgrade -y openssl
+#RUN apt-get update && apt-get upgrade -y openssl
 
 # Copia apenas o arquivo de dependências primeiro (otimização de cache do Docker)
 COPY requirements.txt .
