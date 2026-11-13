@@ -15,7 +15,8 @@ COPY requirements.txt .
 
 # Atualiza as ferramentas base e todas as dependências da aplicação de uma vez
 RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
-    && pip install --no-cache-dir --upgrade -r requirements.txt
+    && pip install --no-cache-dir --upgrade -r requirements.txt\
+    && pip install --no-cache-dir --upgrade "setuptools>=78.1.1"
 
 # Copia o resto do código da aplicação para dentro do contêiner
 COPY . .
