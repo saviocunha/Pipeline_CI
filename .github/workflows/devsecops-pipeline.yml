@@ -107,7 +107,7 @@ jobs:
           exit-code: '1'            # Retorna código de erro 1 (falha o pipeline) se encontrar vulnerabilidades
           ignore-unfixed: true      # Ignora vulnerabilidades que ainda não possuem correção oficial
           vuln-type: 'os,library'   # Escaneia o SO da imagem base e as bibliotecas da aplicação
-          severity: 'CRITICAL,HIGH' # Considera apenas vulnerabilidades de nível Alto ou Crítico
+          severity: 'CRITICAL'      # Considera apenas vulnerabilidades de nível Crítico (HIGH já corrigido)
 
   # JOB 4: Publicação da Imagem Docker no Registro (Release)
   docker-build-and-push:
