@@ -1,6 +1,6 @@
 # Usa uma imgagem oficial do Python, bem leve (alpine ou slim)
 
-FROM python:3.9-slim
+FROM python:3.12-slim
 
 # Define o diretório de trabalho dentro do contêiner
 WORKDIR /app
@@ -17,12 +17,7 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 COPY requirements.txt .
 
 # Instala as dependências
-RUN pip install --no-cache-dir -r requirements.txt \
-    && pip install --no-cache-dir --upgrade \
-        "urllib3>=2.8.0" \
-        "msgpack>=1.2.3" \
-        "wheel>=0.46.2" \
-        "jaraco.context>=6.1.0"
+RUN pip install --no-cache-dir -r requirements.txt 
 
 # Copia o resto do código da aplicação para dentro do contêiner
 COPY . .
