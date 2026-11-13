@@ -10,15 +10,12 @@ RUN apt-get update \
     && apt-get upgrade -y \
     && rm -rf /var/lib/apt/lists/*
 
-# Atualiza as ferramentas base do Python 
-RUN pip install --no-cache-dir --upgrade pip setuptools wheel
-
 # Copia apenas o arquivo de dependências primeiro (otimização de cache do Docker)
 COPY requirements.txt .
 
-# Instala as dependências e atualiza TODOS os pacotes desatualizados do ambiente
-RUN pip install --no-cache-dir -r requirements.txt \
-    && pip list --outdated --format=json | python -c "import sys, json; print('\n'.join(p['name'] for p in json.load(sys.stdin)))" | xargs -r pip install --no-cache-dir --upgrade
+# Atualiza as ferramentas base e todas as dependências da aplicação de uma vez
+RUN pip install --no-cache-dir --upgrade pip setuptools wheel \
+    && pip install --no-cache-dir --upgrade -r requirements.txt
 
 # Copia o resto do código da aplicação para dentro do contêiner
 COPY . .
