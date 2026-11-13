@@ -16,8 +16,9 @@ RUN pip install --no-cache-dir --upgrade pip setuptools wheel
 # Copia apenas o arquivo de dependências primeiro (otimização de cache do Docker)
 COPY requirements.txt .
 
-# Instala as dependências
-RUN pip install --no-cache-dir -r requirements.txt 
+# Instala as dependências e atualiza TODOS os pacotes desatualizados do ambiente
+RUN pip install --no-cache-dir -r requirements.txt \
+    && pip list --outdated --format=json | python -c "import sys, json; print('\n'.join(p['name'] for p in json.load(sys.stdin)))" | xargs -r pip install --no-cache-dir --upgrade
 
 # Copia o resto do código da aplicação para dentro do contêiner
 COPY . .
